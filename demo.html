@@ -53,7 +53,7 @@
       $('.list')
       .on('mouseenter','li',function(){
           
-        $('<a href="#" class="close">[x]</a>')
+        $('<a href="#" class="close fontawesome-remove"></a>')
         .hide()
         .appendTo($(this))
         .fadeIn();
@@ -91,6 +91,7 @@
   	</script>
 
   	<style>
+    @import url(http://weloveiconfonts.com/api/?family=fontawesome);
   	
   	* {
   		margin: 0; 
@@ -139,6 +140,11 @@
       box-shadow: 1px 1px 3px rgba(0,0,0,.3);
     }
 
+    /* fontawesome */
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+
     input[type="submit"] {
       background-color: #666;
       color: #fff;      
@@ -157,7 +163,7 @@
       position: relative;
       list-style: none;
       background: #fff;
-      padding: 4px;
+      padding: 8px 4px;
       margin: 1px 0;
      transition: background .25s ease;
      border-radius: 5px;
@@ -170,11 +176,10 @@
     .close {
       display: block;
       position: absolute;
-      width: 20px;
-      height: 20px;
-      right: 4px;
-      top: 4px;
+      right: 7px;
+      top: 7px;
       color: red;
+      text-decoration: none;
     }
 
   	</style>
