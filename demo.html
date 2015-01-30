@@ -1,197 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-  	<title></title>
-  	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <script src="js/prefixfree.min.js"></script>
 
-  	<script type="text/javascript">
-  	jQuery(function($){
-     
-    $.fn.todolist = function() {
+<head>
+    <title>jQuery "To Do" List</title>
+    <link rel="stylesheet" type="text/css" href="css/normalize.min.css">
+    <link rel="stylesheet" type="text/css"  href="css/todo.css">
 
-     var construct = '<div class="list-wrap">'
-                  + '<form id="todo-add" method="post">'
-                  + '<input type="text" name="item" id="item" placeholder="Item Description">'
-                  + '<input type="submit" id="submit" value="Add">'
-                  + '</form>'
-                  + '<ul class="list"></ul>'
-                  + '</div>';
+</head>
 
-      $($(this)).prepend(construct);
-
-      $('#todo-add').on('submit',function(event){
-
-        // prevent default submit event
-        event.preventDefault();
-
-        //declare variables
-        var item        = $('#item').val(),
-            list        = $('.list'),
-            construct   = '<li class="hide">' + item + '</li>';
-
-        if ( !item ) { // if nothing in #item alert the user
-
-          alert('no item')
-
-        } else { // else, insert the contens of #item into .list
-
-          $('<li/>')
-          .text(item)  
-          .hide()
-          .prependTo(list)
-          .fadeIn();
-        }
-
-        //clear the contents of #item and apply focus
-        $('#item')
-        .val('')
-        .focus();;
-
-      });//end form on(submit);
-
-      $('.list')
-      .on('mouseenter','li',function(){
-          
-        $('<a href="#" class="close fontawesome-remove"></a>')
-        .hide()
-        .appendTo($(this))
-        .fadeIn();
-
-        $(this).addClass('hover');
-
-        $('.list').on('click','.close', function(event){
-
-          event.preventDefault();
-
-          $(this).parent('li').fadeOut('fast', function(){
-            $(this).remove();
-          });
-
-        })
-
-      })// end mouseenter
-      .on('mouseleave','li',function(){
-
-        $(this).children('a').remove();
-
-        $(this).removeClass('hover');
-
-      })// end mouseleave
-
-    }// end todolist
+<body>
 
 
+    <div class="container"></div>
 
 
-    // applies todolist method to dom element
-    $('.container').todolist();
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="js/todo.js"></script>
+</body>
 
-    }); // END jQuery noconflict mode
-  	</script>
-
-  	<style>
-    @import url(http://weloveiconfonts.com/api/?family=fontawesome);
-  	
-  	* {
-  		margin: 0; 
-  		padding: 0;
-      box-sizing: border-box;
-
-  	}
-
-  	body {
-  		padding: 30px; 
-  		font-family: "Helvetica Neue", helvetica, arial; 
-      font-size: 14px;
-  		background: url('http://subtlepatterns.com/patterns/white_carbonfiber.png');
-  	}    
-
-    .list-wrap {
-      width: 350px;
-    }
-
-    #todo-add {
-      margin-bottom: 20px;
-    }
-
-    #todo-add:after {
-      content: "";
-      display: block;
-      height: 0;
-      visibility: hidden;
-      clear: both;
-    }
-
-    input[type="text"] {
-      padding: 0 5px;
-      font-size: 13px;
-      width: 200px;
-    }
-
-    input,
-    input[type="submit"] {
-      height: 30px;
-      outline: none;
-      border-radius: 4px;
-      float: left;
-      font-family: arial;
-      border: none;
-      box-shadow: 1px 1px 3px rgba(0,0,0,.3);
-    }
-
-    /* fontawesome */
-[class*="fontawesome-"]:before {
-  font-family: 'FontAwesome', sans-serif;
-}
-
-    input[type="submit"] {
-      background-color: #666;
-      color: #fff;      
-      margin: 0 0 0 -4px;
-      font-weight: bold;
-      padding: 0 15px;
-      line-height: 1;
-      cursor: pointer;
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-
-
-    .list li {
-      display: block;
-      position: relative;
-      list-style: none;
-      background: #fff;
-      padding: 8px 4px;
-      margin: 1px 0;
-     transition: background .25s ease;
-     border-radius: 5px;
-    }
-
-    .list .hover {
-      background: #e5e5e5;
-    }
-
-    .close {
-      display: block;
-      position: absolute;
-      right: 7px;
-      top: 7px;
-      color: red;
-      text-decoration: none;
-    }
-
-  	</style>
-
-  </head>
-  <body>
-
-
-<div class="container">
-</div>  
-   
-    
-
-  </body>
 </html>

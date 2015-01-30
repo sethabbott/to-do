@@ -1,0 +1,100 @@
+
+  	body {
+  		padding: 30px; 
+  		font-family: "Helvetica Neue", helvetica, arial; 
+      font-size: 14px;
+  		background: url('http://subtlepatterns.com/patterns/white_carbonfiber.png');
+  	}    
+
+    .list-wrap {
+      width: 350px;
+    }
+
+    #todo-add {
+      margin-bottom: 20px;
+    }
+
+    #todo-add:after {
+      content: "";
+      display: block;
+      height: 0;
+      visibility: hidden;
+      clear: both;
+    }
+
+    input[type="text"] {
+      padding: 0 5px;
+      font-size: 13px;
+      width: 200px;
+    }
+
+    input,
+    input[type="submit"] {
+      height: 30px;
+      outline: none;
+      border-radius: 4px;
+      float: left;
+      font-family: arial;
+      border: none;
+      box-shadow: 1px 1px 3px rgba(0,0,0,.3);
+    }
+
+
+
+    input[type="submit"] {
+      background-color: #666;
+      color: #fff;      
+      margin: 0 0 0 -4px;
+      font-weight: bold;
+      padding: 0 15px;
+      line-height: 1;
+      cursor: pointer;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    button {
+      padding: 0 20px;
+      border: none;
+      background-color: #999;
+      border-radius: 4px;
+      line-height: 33px;
+      white-space: nowrap;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 1px 0 rgba(0,0,0,.5);
+    }
+
+    .clear-list {
+      margin-top: 10px;
+      background-color: #cc0000;
+    }
+
+    .list {
+      padding-left: 0;
+    }
+
+
+    .list li {
+      display: block;
+      position: relative;
+      list-style: none;
+      background: #fff;
+      padding: 8px 4px;
+      margin: 4px 0;
+     transition: background .25s ease;
+     border-radius: 5px;
+    }
+
+    .list .hover {
+      background: #e5e5e5;
+    }
+
+    .close {
+      display: block;
+      position: absolute;
+      right: 7px;
+      top: 7px;
+      color: red;
+      text-decoration: none;
+    }
